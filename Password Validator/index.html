@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        text-align: center;
+        background-color: rgb(158, 90, 204);
+        border-radius: 20px;
+      }
+
+      .form-table {
+        border-collapse: collapse;
+        width: 300px;
+      }
+
+      td {
+        padding: 8px;
+      }
+
+      label {
+        display: inline-block;
+        width: 120px;
+        text-align: right;
+        margin-right: 20px;
+      }
+
+      input[type="password"] {
+        padding: 6px;
+        width: 150px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        margin-right: 20px;
+      }
+
+      button {
+        padding: 8px 16px;
+        text-align: center;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .validator-row {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table class="form-table">
+        <tr>
+          <td colspan="2" class="validator-row">
+            <p id="validator"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Password</label>
+          </td>
+          <td>
+            <input type="password" id="pass" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Confirm Password</label>
+          </td>
+          <td>
+            <input type="password" id="cnfrmpass" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button onclick="check()">Check</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script>
+    function check() {
+      let pass = document.getElementById("pass").value;
+      let cnfrmpass = document.getElementById("cnfrmpass").value;
+      if (pass === "") {
+        alert("Please Enter the password first");
+
+
+      } else {
+        if (pass === cnfrmpass) {
+          document.getElementById("validator").innerHTML = "Password Matched";
+          console.log("Password Matched");
+        } else {
+          document.getElementById("validator").innerHTML =
+            "Password  Not Matched";
+            console.log("Password Not Matched");
+        }
+      }
+    }
+  </script>
+</html>

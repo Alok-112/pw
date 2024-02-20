@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Calculator</title>
+    <style>
+      .container {
+        max-width: 300px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      input {
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        margin-right: 20px;
+        padding: 5px 7px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <label for="num1">Number 1:</label>
+      <input type="number" id="num1" />
+      <br />
+      <label for="num2">Number 2:</label>
+      <input type="number" id="num2" />
+
+      <label for="operation">Operation:</label>
+      <select id="operation">
+        <option value="+">Addition (+)</option>
+        <option value="-">Subtraction (-)</option>
+        <option value="*">Multiplication (x)</option>
+        <option value="/">Division (/)</option>
+      </select>
+      <br />
+      <br />
+      <button onclick="calculate()">Calculate</button>
+      <button id="reset" onclick="reset()">Reset</button>
+
+      <br />
+      <br />
+      <label for="result">Result:</label>
+      <input type="text" id="result" readonly />
+    </div>
+
+    <script>
+      function reset() {
+        document.getElementById("result").value = "";
+      }
+      function calculate() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        var operation = document.getElementById("operation").value;
+        var resultField = document.getElementById("result");
+
+        switch (operation) {
+          case "+":
+            resultField.value = num1 + num2;
+            break;
+
+          case "-":
+            resultField.value = num1 - num2;
+            break;
+
+          case "*":
+            resultField.value = num1 * num2;
+            break;
+
+          case "/":
+            resultField.value = num1 / num2;
+            break;
+
+          default:
+            resultField.value = "Invalid operation";
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
